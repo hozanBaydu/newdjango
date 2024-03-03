@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+
+<div class="container" style="width: 50%;">
+    {%for tweet in tweets%}
+
+    <div class="card" style="padding:10px;">
+
+        <div class="card-header" style="background-color: rgb(111, 111, 233);">
+
+
+            <h4>{{tweet.username}}</h4>
+
+        </div>
+
+    
+        <div class="card-body">
+
+            <p class="card-text">{{tweet.message}}
+
+            </p>
+
+
+        </div>
+
+        {% if tweet.username == user %}
+        <a href="{% url 'tweetapp:deletetweet' id=tweet.id %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+    </div>
+    <!-- {{tweet.nickname}}
+     .nickname demeseydik def __str__(self):
+            return f"Tweet nick: {self.nickname} message: {self.message}" bu formatta görünücekti. --> -->
+
+
+{%endfor%}
+
+
+</div>
+{%endblock%}
+</div>
